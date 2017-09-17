@@ -7,6 +7,6 @@ ShopifyApp.configure do |config|
   config.after_authenticate_job = false
   config.session_repository = Shop
   config.scripttags = [
-    {event:'onload', src: 'https://validate-address.herokuapp.com/fancy.js'}    
+    {event:'onload', src: 'https://validate-address.herokuapp.com/checkout.js'}    
   ]
 end
