@@ -11,12 +11,12 @@ if (window.location.href.indexOf('checkout') > -1) {
         setTimeout(initAutocomplete, 2000);
 
         //var shipping_address = document.getElementsByClassName("review-block__content")[0];
-        var shipping_address = 'aaaa';
+        /*var shipping_address = 'aaaa';
         if(shopping_address !== null) {
             console.log("shipping_address exists");
         } else {
             console.log("shipping_address does not exist");
-        }
+        }*/
 
         var lookup = {
             "street_number": document.getElementById('checkout_shipping_address_address1'),
