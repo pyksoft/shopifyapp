@@ -10,7 +10,8 @@ if (window.location.href.indexOf('checkout') > -1) {
 
         setTimeout(initAutocomplete, 2000);
 
-        var shipping_address = document.getElementsByClassName("review-block__content")[0];
+        //var shipping_address = document.getElementsByClassName("review-block__content")[0];
+        var shipping_address = 'aaaa';
         if(shopping_address !== null) {
             console.log("shipping_address exists");
         } else {
