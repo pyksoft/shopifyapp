@@ -114,9 +114,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {        
         var i = new XMLHttpRequest;
-        i.open("GET", e + "/brand_preferences?shop=" + t, !0), i.send(null), i.onreadystatechange = function() {
+        //i.open("GET", e + "/brand_preferences?shop=" + t, !0), i.send(null), i.onreadystatechange = function() {
             //if (4 === i.readyState) {
-            if(true)
                 var e = JSON.parse(i.responseText);
                 if (e.disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
                         return r(e.customization)
@@ -130,8 +129,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     var t = document.createElement("script");
                     t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
                 }
-            }
-        }
+            //}
+        //}
     }
     var c = void 0,
         l = ["done", "invalid order", "no shipping address", "already fulfilled", "invalid request", "invalid store", "invalid country", "invalid checkout", "ignore order"];
