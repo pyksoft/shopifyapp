@@ -146,7 +146,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             //if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
             console.log(u.readyState);
 
-            var d = JSON.parse(u.responseText).scope;
+            var d = JSON.parse(u.responseText);
 
             console.log(d);
 
