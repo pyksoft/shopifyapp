@@ -80,8 +80,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             e.setAttribute("id", "addressValidatorBox"), document.getElementsByClassName("main__header")[0].appendChild(e)
         },
         o = function(n, s) {
-            var o = new XMLHttpRequest;
-            alert(3);
+            var o = new XMLHttpRequest;            
             o.open("POST", e + "/checkout_update"), o.setRequestHeader("Content-Type", "application/json;charset=UTF-8"), o.send(JSON.stringify({
                 shop: t,
                 token: Shopify.Checkout.token,
@@ -113,8 +112,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 s = d("numAlertWrapper", e.textStreetNum || "&#9888; Please specify a street number.");
             n && !t ? cityParent.insertBefore(s, cityParent.childNodes[0]) : !n && t && document.getElementById("numAlertWrapper").remove()
         };
-    if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
-        alert(0);
+    if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {        
         var i = new XMLHttpRequest;
         i.open("GET", e + "/brand_preferences?shop=" + t, !0), i.send(null), i.onreadystatechange = function() {
             if (4 === i.readyState) {
@@ -137,8 +135,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     var c = void 0,
         l = ["done", "invalid order", "no shipping address", "already fulfilled", "invalid request", "invalid store", "invalid country", "invalid checkout", "ignore order"];
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
-        var u = new XMLHttpRequest;
-        alert(1);
+        var u = new XMLHttpRequest;        
         u.open("GET", e + "/brand_preferences?shop=" + t, !0), u.send(null), u.onreadystatechange = function() {
             if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
                 c = JSON.parse(u.responseText).customization;
