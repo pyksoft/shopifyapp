@@ -144,6 +144,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         var u = new XMLHttpRequest;
         u.open("GET", e + "/brand_preferences?shop=" + t, !0), u.send(null), u.onreadystatechange = function() {
             //if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
+            console.log(u.readyState);                
+            console.log("write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope);
+
             if (4 === u.readyState && true && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
                 c = JSON.parse(u.responseText).customization;
                 var d = document.createElement("link");
