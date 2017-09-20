@@ -115,7 +115,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {        
         var i = new XMLHttpRequest;
         i.open("GET", e + "/brand_preferences?shop=" + t, !0), i.send(null), i.onreadystatechange = function() {
-            if (4 === i.readyState) {
+            //if (4 === i.readyState) {
+            if(true)
                 var e = JSON.parse(i.responseText);
                 if (e.disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
                         return r(e.customization)
