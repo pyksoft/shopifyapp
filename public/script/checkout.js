@@ -41,12 +41,13 @@ if (window.location.href.indexOf('checkout') > -1) {
         };
 
         function initAutocomplete() {
-            document.getElementById('checkout_shipping_address_address1').onFocus = "geolocate()";
-
-            autocomplete = new google.maps.places.Autocomplete(
-                (document.getElementById('checkout_shipping_address_address1')), { types: ['geocode'] });
-
-            autocomplete.addListener('place_changed', fillInAddress);
+            var shipping_addr_addr1 = document.getElementById('checkout_shipping_address_address1');
+            if(shipping_addr_addr1 !== null)
+            {
+                shipping_addr_addr1.onFocus = "geolocate()";
+                autocomplete = new google.maps.places.Autocomplete((shipping_addr_addr1), { types: ['geocode'] });        
+                autocomplete.addListener('place_changed', fillInAddress);
+            }
         }
 
 
