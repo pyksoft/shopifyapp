@@ -12,7 +12,7 @@ if (window.location.href.indexOf('checkout') > -1) {
 
         //var shipping_address = document.getElementsByClassName("review-block__content")[0];
         var shipping_address = 1;
-        if(shopping_address != 1) {
+        if(shipping_address != 1) {
             console.log("shipping_address exists");
         } else {
             console.log("shipping_address does not exist");
