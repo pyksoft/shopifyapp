@@ -130,7 +130,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                         return r(e.customization)
                     }) : e.address1_num_check && (address_1.onkeyup = function() {
                         return a(e.customization)
-                    }), e.autocomplete) {
+                    }), true) {                        
+                    //}), e.autocomplete) {
                     var t = document.createElement("script");
                     t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
                 }
