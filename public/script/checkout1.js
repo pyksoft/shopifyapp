@@ -116,7 +116,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         var i = new XMLHttpRequest;
         /*
         e = "https://app.roboturk.co/address_validator/api",
-        t = Shopify.shop || Shopify.Checkout.apiHost,*/        
+        t = Shopify.shop || Shopify.Checkout.apiHost, */
         i.open("GET", e + "/brand_preferences?shop=" + t, !0), 
         i.send(null), 
         i.onreadystatechange = function() {
@@ -130,8 +130,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                         return r(e.customization)
                     }) : e.address1_num_check && (address_1.onkeyup = function() {
                         return a(e.customization)
-                    }), true) {                        
                     //}), e.autocomplete) {
+                    }), true) {
                     var t = document.createElement("script");
                     t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
                 }
@@ -143,7 +143,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
         var u = new XMLHttpRequest;
         u.open("GET", e + "/brand_preferences?shop=" + t, !0), u.send(null), u.onreadystatechange = function() {
-            if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
+            //if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
+            if (4 === u.readyState && true && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
                 c = JSON.parse(u.responseText).customization;
                 var d = document.createElement("link");
                 d.rel = "stylesheet", d.type = "text/css", d.href = "https://s3-us-west-2.amazonaws.com/addressvalidator/validate.css", head.appendChild(d);
