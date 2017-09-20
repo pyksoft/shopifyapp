@@ -50,7 +50,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     i = t.address_components.find(function(e) {
                         return -1 !== e.types.indexOf("administrative_area_level_2")
                     }),
-                    c = t.address_components.find(function(e) {
+                   c = t.address_components.find(function(e) {
                         return -1 !== e.types.indexOf("administrative_area_level_1")
                     }),
                     l = t.address_components.find(function(e) {
@@ -81,6 +81,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         },
         o = function(n, s) {
             var o = new XMLHttpRequest;
+            alert(3);
             o.open("POST", e + "/checkout_update"), o.setRequestHeader("Content-Type", "application/json;charset=UTF-8"), o.send(JSON.stringify({
                 shop: t,
                 token: Shopify.Checkout.token,
@@ -113,6 +114,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             n && !t ? cityParent.insertBefore(s, cityParent.childNodes[0]) : !n && t && document.getElementById("numAlertWrapper").remove()
         };
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
+        alert(0);
         var i = new XMLHttpRequest;
         i.open("GET", e + "/brand_preferences?shop=" + t, !0), i.send(null), i.onreadystatechange = function() {
             if (4 === i.readyState) {
@@ -136,6 +138,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         l = ["done", "invalid order", "no shipping address", "already fulfilled", "invalid request", "invalid store", "invalid country", "invalid checkout", "ignore order"];
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
         var u = new XMLHttpRequest;
+        alert(1);
         u.open("GET", e + "/brand_preferences?shop=" + t, !0), u.send(null), u.onreadystatechange = function() {
             if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
                 c = JSON.parse(u.responseText).customization;
