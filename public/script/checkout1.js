@@ -143,16 +143,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
         var u = new XMLHttpRequest;
         u.open("GET", e + "/brand_preferences?shop=" + t, !0), u.send(null), u.onreadystatechange = function() {
-            //if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
-            console.log(u.readyState);
-            console.log("test",u.responseText);
-            console.log('test2', u);
-
-            var d = JSON.parse(u.responseText);
-
-            console.log(d);
-
-            if (4 === u.readyState && true && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
+            if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
                 c = JSON.parse(u.responseText).customization;
                 var d = document.createElement("link");
                 d.rel = "stylesheet", d.type = "text/css", d.href = "https://s3-us-west-2.amazonaws.com/addressvalidator/validate.css", head.appendChild(d);
