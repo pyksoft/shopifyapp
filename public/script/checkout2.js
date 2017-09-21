@@ -63,7 +63,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }), google.maps.event.addDomListener(address_1, "keydown", function(e) {
             13 === e.keyCode && e.preventDefault()
         })
-    };
+    },
     
     validateAddress123 = function() {
         var geocoder = new google.maps.Geocoder();      
