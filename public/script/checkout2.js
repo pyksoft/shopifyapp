@@ -63,9 +63,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }), google.maps.event.addDomListener(address_1, "keydown", function(e) {
             13 === e.keyCode && e.preventDefault()
         })
-    },
+    };
     
-    validateAddress123 = function() {
+    var validateAddress = function() {
         var geocoder = new google.maps.Geocoder();      
     };
     
@@ -147,6 +147,6 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {             
         
         var t = document.createElement("script");
-        t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&callback=validateAddress123", t.type = "text/javascript", head.appendChild(t);
+        t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
     }
 }();
