@@ -68,7 +68,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     var validateAddress = function() {
         var geocoder = new google.maps.Geocoder();        
 
-        var shipping_address = document.getElementsByClassName("review-block__content").value;
+        var shipping_address = document.getElementsByClassName("review-block__content")[0].value;        
         var geocoder = new google.maps.Geocoder();
 
         var textCorrect = "Thanks for specifying a correct shipping address.";
