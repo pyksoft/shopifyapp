@@ -143,7 +143,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     function validateAddress() {
         var geocoder = new google.maps.Geocoder();        
 
-        var shipping_address = document.getElementsByClassName("review-block__content").value;
+        /*var shipping_address = document.getElementsByClassName("review-block__content").value;
         var geocoder = new google.maps.Geocoder();
 
         var textCorrect = "Thanks for specifying a correct shipping address.";
@@ -157,7 +157,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             console.log('Geocode was not successful for the following reason: ' + status);
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>"; //n();
           }
-        });
+        });*/
     }
 
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {             
