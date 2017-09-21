@@ -102,7 +102,5 @@ if (window.location.href.indexOf('checkout') > -1) {
                 });
             }
         }
-
-
     };
 }
