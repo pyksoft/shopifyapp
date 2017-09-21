@@ -73,7 +73,11 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
         var textCorrect = "Thanks for specifying a correct shipping address.";
         var textInaccurate = "is the shipping address correct?";
-                
+        var s = function() {
+            var e = document.createElement("div");
+            e.setAttribute("id", "addressValidatorBox"), document.getElementsByClassName("main__header")[0].appendChild(e)
+        };
+
         geocoder.geocode({'address': shipping_address}, function(results, status) {
           if (status === 'OK') {
             console.log("valid address");
