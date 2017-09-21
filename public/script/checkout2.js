@@ -77,10 +77,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         geocoder.geocode({'address': shipping_address}, function(results, status) {
           if (status === 'OK') {
             console.log("valid address");
-            s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
+            //s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
           } else {
             console.log('Geocode was not successful for the following reason: ' + status);
-            s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>"; //n();
+            //s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>"; //n();
           }
         });
     }
