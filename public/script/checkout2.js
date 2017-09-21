@@ -139,14 +139,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }
     }
     
-    /*var c = void 0,
-        l = ["done", "invalid order", "no shipping address", "already fulfilled", "invalid request", "invalid store", "invalid country", "invalid checkout", "ignore order"]; */    
+    
+    function validateAddress() {
+        var geocoder = new google.maps.Geocoder();        
 
-    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {             
-        
-        var t = document.createElement("script");
-        t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg", t.type = "text/javascript", head.appendChild(t)
-        
         var shipping_address = document.getElementsByClassName("review-block__content").value;
         var geocoder = new google.maps.Geocoder();
 
@@ -162,5 +158,11 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>"; //n();
           }
         });
+    }
+
+    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {             
+        
+        var t = document.createElement("script");
+        t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
     }
 }();
