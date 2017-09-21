@@ -64,11 +64,27 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             13 === e.keyCode && e.preventDefault()
         })
     };
-    
+
     var validateAddress = function() {
-        var geocoder = new google.maps.Geocoder();      
-    };
-    
+        var geocoder = new google.maps.Geocoder();        
+
+        var shipping_address = document.getElementsByClassName("review-block__content").value;
+        var geocoder = new google.maps.Geocoder();
+
+        var textCorrect = "Thanks for specifying a correct shipping address.";
+        var textInaccurate = "is the shipping address correct?";
+                
+        geocoder.geocode({'address': shipping_address}, function(results, status) {
+          if (status === 'OK') {
+            console.log("valid address");
+            s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
+          } else {
+            console.log('Geocode was not successful for the following reason: ' + status);
+            s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>"; //n();
+          }
+        });
+    }
+
 ! function() {
     var e = "https://app.roboturk.co/address_validator/api",
         t = Shopify.shop || Shopify.Checkout.apiHost,
