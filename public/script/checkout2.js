@@ -133,44 +133,34 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     //}), e.autocomplete) {
                     }), true) {
                     var t = document.createElement("script");
-                    t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
+                    t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
                 }
             }
         }
     }
     
     /*var c = void 0,
-        l = ["done", "invalid order", "no shipping address", "already fulfilled", "invalid request", "invalid store", "invalid country", "invalid checkout", "ignore order"];
-    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
-        var u = new XMLHttpRequest;
-        u.open("GET", e + "/brand_preferences?shop=" + t, !0), u.send(null), u.onreadystatechange = function() {
-            //if (4 === u.readyState && JSON.parse(u.responseText).validate_pre_checkout && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
-            if (4 === u.readyState && true && "write_script_tags,read_orders,write_orders,read_checkouts,write_checkouts" === JSON.parse(u.responseText).scope) {
-                c = JSON.parse(u.responseText).customization;
-                var d = document.createElement("link");
-                d.rel = "stylesheet", d.type = "text/css", d.href = "https://s3-us-west-2.amazonaws.com/addressvalidator/validate.css", head.appendChild(d);
-                var r = new XMLHttpRequest;
-                r.open("POST", e + "/checkout_validate"), r.setRequestHeader("Content-Type", "application/json;charset=UTF-8"), r.send(JSON.stringify({
-                    shop: t,
-                    token: Shopify.Checkout.token
-                })), r.onreadystatechange = function() {
-                    if (4 === r.readyState) {
-                        if ("Address is valid" === r.responseText) s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + c.textCorrect + "</h2>";
-                        else if (-1 !== l.indexOf(r.responseText)) console.log(r.responseText);
-                        else if ("Street address was verified, but confirm apt/suite/unit number." === r.responseText) s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + c.textAptSuite + "</h2>";
-                        else if (200 === r.status) {
-                            s(), window.scrollTo(0, 0);
-                            var e = JSON.parse(r.responseText).original,
-                                t = JSON.parse(r.responseText).suggested;
-                            document.getElementById("addressValidatorBox").innerHTML = "\n<h2>" + c.textSuggest1 + "</h2>\n<small>" + c.textSuggest2 + "</small>\n<br /><br />\n<div id='suggestedAddress'>\n<b><i>Suggested address:</i></b>\n<br />\n" + t + "\n</div>\n<hr />\n<div id='originalAddress'>\n<b><i>Original address:</i></b>\n<br />\n" + e + "\n</div>\n", document.getElementById("suggestedAddress").onclick = function() {
-                                return o("updated", t.replace(/<br>/g, ","))
-                            }, document.getElementById("originalAddress").onclick = function() {
-                                return o("confirmed", null)
-                            }
-                        } else s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + c.textInaccurate + "</h2>"; - 1 === l.indexOf(r.responseText) && n()
-                    }
-                }
-            }
-        }
-    }*/
+        l = ["done", "invalid order", "no shipping address", "already fulfilled", "invalid request", "invalid store", "invalid country", "invalid checkout", "ignore order"]; */    
+
+    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {             
+        
+        var t = document.createElement("script");
+        t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg", t.type = "text/javascript", head.appendChild(t)
+        
+        var shipping_address = document.getElementsByClassName("review-block__content").value;
+        var geocoder = new google.maps.Geocoder();
+
+        var textCorrect = "Thanks for specifying a correct shipping address.";
+        var textInaccurate = "is the shipping address correct?";
+                
+        geocoder.geocode({'address': shipping_address}, function(results, status) {
+          if (status === 'OK') {
+            console.log("valid address");
+            s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
+          } else {
+            console.log('Geocode was not successful for the following reason: ' + status);
+            s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>"; //n();
+          }
+        });
+    }
 }();
