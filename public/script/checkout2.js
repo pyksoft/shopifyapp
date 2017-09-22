@@ -166,11 +166,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             return r("");
         }), 
 
-        address1_num_check ? address_1.onkeyup = function() {
-            r(""), a("")
-        } : address_1.onkeyup = function() {
+        address1_num_check && (address_1.onkeyup = function() {
             return r("");
-        });
+        }));
 
         if(autocomplete) {
             var t = document.createElement("script");
