@@ -167,7 +167,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }), 
 
         address1_num_check && (address_1.onkeyup = function() {
-            return r("");
+            return a("");
         }));
 
         if(autocomplete) {
