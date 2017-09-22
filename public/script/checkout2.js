@@ -80,15 +80,19 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
         geocoder.geocode({'address': shipping_address}, function(results, status) {
           if (status === 'OK') {
-            console.log("valid address");
+            //console.log("valid address");
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
             
             var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;background: #ddffdd;text-align: center;border-radius: 5px;}",
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
           } else {
-            console.log('Geocode was not successful for the following reason: ' + status);
+            //console.log('Geocode was not successful for the following reason: ' + status);
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>";
+
+            var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;background: #f8d7da;text-align: center;border-radius: 5px;}",
+            t = document.createElement("style");
+            t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
           }
         });
     }
