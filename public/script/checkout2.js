@@ -148,7 +148,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
         var disable_po_boxes = true, address1_num_check = true, autocomplete = true;
-        if (disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
+        /*if (disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
                 return r("");
             }), address1_num_check ? address_1.onkeyup = function() {
                 r(""), a("")
@@ -157,6 +157,22 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             }) : address1_num_check && (address_1.onkeyup = function() {
                 return a("");                    
             }), autocomplete) {
+            var t = document.createElement("script");
+            t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
+        }*/
+
+
+        disable_po_boxes && (address_2 && (address_2.onkeyup = function() {
+            return r("");
+        }), 
+
+        address1_num_check ? address_1.onkeyup = function() {
+            r(""), a("")
+        } : address_1.onkeyup = function() {
+            return r("");
+        });
+
+        if(autocomplete) {
             var t = document.createElement("script");
             t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
         }
