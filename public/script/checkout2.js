@@ -145,35 +145,13 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 s = d("numAlertWrapper", e.textStreetNum || "&#9888; Please specify a street number.");
             n && !t ? cityParent.insertBefore(s, cityParent.childNodes[0]) : !n && t && document.getElementById("numAlertWrapper").remove()
         };
+
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
-        var i = new XMLHttpRequest;
-        /*
-        e = "https://app.roboturk.co/address_validator/api",
-        t = Shopify.shop || Shopify.Checkout.apiHost, */
-        i.open("GET", e + "/brand_preferences?shop=" + t, !0), 
-        i.send(null), 
-        i.onreadystatechange = function() {
-            if (4 === i.readyState) {
-                var e = JSON.parse(i.responseText);
-                if (e.disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
-                        return r(e.customization)
-                    }), e.address1_num_check ? address_1.onkeyup = function() {
-                        r(e.customization), a(e.customization)
-                    } : address_1.onkeyup = function() {
-                        return r(e.customization)
-                    }) : e.address1_num_check && (address_1.onkeyup = function() {
-                        return a(e.customization)
-                    //}), e.autocomplete) {
-                    }), true) {
-                    var t = document.createElement("script");
-                    t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
-                }
-            }
-        }
+        var t = document.createElement("script");
+        t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7s-Y8HrzH481F0eT2gndRVwvEbVVx7bg&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
     }
 
-    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {             
-        
+    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {        
         var t = document.createElement("script");
         t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
     }
