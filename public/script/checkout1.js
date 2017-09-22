@@ -103,40 +103,40 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     return -1 !== ["letussellit.myshopify.com", "buymobilerapidco.myshopify.com", "buy-mobile-new-zealand.myshopify.com", "from-china-with-love-australia.myshopify.com", "vayahss.myshopify.com", "amaysim.myshopify.com"].indexOf(t) && -1 !== e.replace(/[^\w\s]/gi, "").replace(/ /g, "").toLowerCase().indexOf("parcellocker")
                 },
                 r = s(address_1.value) || s(address_2.value) || o(address_1.value) || o(address_2.value),
-                a = d("addressAlertWrapper", e.textPOBox || "&#9888; We cannot deliver to a P.O. Box. Please provide a valid street address.");
+                a = d("addressAlertWrapper", "&#9888; We cannot deliver to a P.O. Box. Please provide a valid street address.");
             r && !n ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove()
         },
         a = function(e) {
             var t = document.getElementById("numAlertWrapper"),
                 n = !/\d/.test(address_1.value) && address_1.value.length >= 6,
-                s = d("numAlertWrapper", e.textStreetNum || "&#9888; Please specify a street number.");
+                s = d("numAlertWrapper", "&#9888; Please specify a street number.");
             n && !t ? cityParent.insertBefore(s, cityParent.childNodes[0]) : !n && t && document.getElementById("numAlertWrapper").remove()
         };
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
-        var i = new XMLHttpRequest;
+        //var i = new XMLHttpRequest;
         /*
         e = "https://app.roboturk.co/address_validator/api",
         t = Shopify.shop || Shopify.Checkout.apiHost, */
-        i.open("GET", e + "/brand_preferences?shop=" + t, !0), 
-        i.send(null), 
-        i.onreadystatechange = function() {
-            if (4 === i.readyState) {
-                var e = JSON.parse(i.responseText);
-                if (e.disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
-                        return r(e.customization)
-                    }), e.address1_num_check ? address_1.onkeyup = function() {
-                        r(e.customization), a(e.customization)
+        //i.open("GET", e + "/brand_preferences?shop=" + t, !0), 
+        //i.send(null), 
+        //i.onreadystatechange = function() {
+        //    if (4 === i.readyState) {
+                //var e = JSON.parse(i.responseText);
+                var disable_po_boxes = true, address1_num_check = true, autocomplete = true;
+                if (disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
+                        return r("");
+                    }), address1_num_check ? address_1.onkeyup = function() {
+                        r(""), a("")
                     } : address_1.onkeyup = function() {
-                        return r(e.customization)
-                    }) : e.address1_num_check && (address_1.onkeyup = function() {
-                        return a(e.customization)
-                    //}), e.autocomplete) {
-                    }), true) {
+                        return r("");
+                    }) : address1_num_check && (address_1.onkeyup = function() {
+                        return a("");                    
+                    }), autocomplete) {
                     var t = document.createElement("script");
                     t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
                 }
-            }
-        }
+        //    }
+        //}
     }
     var c = void 0,
         l = ["done", "invalid order", "no shipping address", "already fulfilled", "invalid request", "invalid store", "invalid country", "invalid checkout", "ignore order"];
