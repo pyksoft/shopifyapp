@@ -82,6 +82,11 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           if (status === 'OK') {
             console.log("valid address");
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
+            
+            var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;background: #ddffdd;text-align: center;border-radius: 5px;}",
+            t = document.createElement("style");
+            t.styleSheet.cssText = e;
+
           } else {
             console.log('Geocode was not successful for the following reason: ' + status);
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textInaccurate + "</h2>";
