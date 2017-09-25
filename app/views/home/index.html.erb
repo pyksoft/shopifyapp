@@ -6,3 +6,36 @@
   </script>
 <% end %>
 
+<p id="notice"><%= notice %></p>
+
+<h1>Options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auto complete</th>
+      <th>Validate address</th>
+      <th>Pobox warning</th>
+      <th>Streetnum warning</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @options.each do |option| %>
+      <tr>
+        <td><%= option.auto_complete %></td>
+        <td><%= option.validate_address %></td>
+        <td><%= option.pobox_warning %></td>
+        <td><%= option.streetnum_warning %></td>
+        <td><%= link_to 'Show', option %></td>
+        <td><%= link_to 'Edit', edit_option_path(option) %></td>
+        <td><%= link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Option', new_option_path %>
