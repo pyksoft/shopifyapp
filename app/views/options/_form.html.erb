@@ -1,0 +1,37 @@
+<%= form_with(model: option, local: true) do |form| %>
+  <% if option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(option.errors.count, "error") %> prohibited this option from being saved:</h2>
+
+      <ul>
+      <% option.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :auto_complete %>
+    <%= form.check_box :auto_complete, id: :option_auto_complete %>
+  </div>
+
+  <div class="field">
+    <%= form.label :validate_address %>
+    <%= form.check_box :validate_address, id: :option_validate_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pobox_warning %>
+    <%= form.check_box :pobox_warning, id: :option_pobox_warning %>
+  </div>
+
+  <div class="field">
+    <%= form.label :streetnum_warning %>
+    <%= form.check_box :streetnum_warning, id: :option_streetnum_warning %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

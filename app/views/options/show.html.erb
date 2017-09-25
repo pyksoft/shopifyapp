@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Auto complete:</strong>
+  <%= @option.auto_complete %>
+</p>
+
+<p>
+  <strong>Validate address:</strong>
+  <%= @option.validate_address %>
+</p>
+
+<p>
+  <strong>Pobox warning:</strong>
+  <%= @option.pobox_warning %>
+</p>
+
+<p>
+  <strong>Streetnum warning:</strong>
+  <%= @option.streetnum_warning %>
+</p>
+
+<%= link_to 'Edit', edit_option_path(@option) %> |
+<%= link_to 'Back', options_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auto_complete: false
+  validate_address: false
+  pobox_warning: false
+  streetnum_warning: false
+
+two:
+  auto_complete: false
+  validate_address: false
+  pobox_warning: false
+  streetnum_warning: false
