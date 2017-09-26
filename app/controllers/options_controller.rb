@@ -42,7 +42,7 @@ class OptionsController < ApplicationController
   def update
     respond_to do |format|
       if @option.update(option_params)
-        format.html { redirect_to @option, notice: 'Option was successfully updated.' }
+        format.html { redirect_to edit_option(@option), notice: 'Options are successfully updated.' }
         format.json { render :show, status: :ok, location: @option }
       else
         format.html { render :edit }
