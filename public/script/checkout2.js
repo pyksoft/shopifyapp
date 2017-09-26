@@ -168,7 +168,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
 
         var i = new XMLHttpRequest;
-        e = "https://custompanel.herokuapp.com/options/1.json",
+        e = "https://leggetter-cors.herokuapp.com/",
         t = Shopify.shop || Shopify.Checkout.apiHost,
         //i.open("GET", e + "/options?shop=" + t, !0),
         i.open("GET", e, !0),
