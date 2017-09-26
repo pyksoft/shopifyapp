@@ -168,14 +168,14 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
 
         var i = new XMLHttpRequest;
-        e = "https://leggetter-cors.herokuapp.com/",
+        e = "https://validate-address.herokuapp.com/options/",
         t = Shopify.shop || Shopify.Checkout.apiHost,
         //i.open("GET", e + "/options?shop=" + t, !0),
         i.open("GET", e, !0),
         i.send(null),
         i.onreadystatechange = function() {
             if (4 === i.readyState) {
-            /*    var e = JSON.parse(i.responseText);
+            /*  var e = JSON.parse(i.responseText);
                 if (e.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
                         return r("");
                     }), e.streetnum_warning ? address_1.onkeyup = function() {
