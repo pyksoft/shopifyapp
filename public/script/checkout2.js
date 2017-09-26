@@ -167,16 +167,14 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }*/
 
 
-        var httpReq = new XMLHttpRequest,
-        url = "https://railssimpleapi.herokuapp.com/api/v1/articles",
-        original = Shopify.shop || Shopify.Checkout.apiHost;
+        var i = new XMLHttpRequest;
+        e = "https://railssimpleapi.herokuapp.com/api/v1/articles",
+        t = Shopify.shop || Shopify.Checkout.apiHost,
         //i.open("GET", e + "/options?shop=" + t, !0),
-
-        httpReq.open("GET", url, true);
-
-        httpReq.onreadystatechange = function() {
-            if (4 === httpReq.readyState) {
-              console.log("response" + httpReq.responseText);
+        i.open("GET", e, !0),
+        i.send(null),
+        i.onreadystatechange = function() {
+            if (4 === i.readyState) {
             /*  var e = JSON.parse(i.responseText);
                 if (e.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
                         return r("");
@@ -192,8 +190,6 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 }*/
             }
         }
-
-        httpReq.send(null);
     }
 
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
