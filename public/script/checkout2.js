@@ -167,15 +167,21 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }*/
 
 
-        var i = new XMLHttpRequest;
-        e = "https://railssimpleapi.herokuapp.com/api/v1/articles",
+        var httpReq = new XMLHttpRequest;
+        url = "https://railssimpleapi.herokuapp.com/api/v1/articles",
         t = Shopify.shop || Shopify.Checkout.apiHost,
         //i.open("GET", e + "/options?shop=" + t, !0),
-        i.open("GET", e, !0),
-        i.send(null),
-        i.onreadystatechange = function() {
-            if (4 === i.readyState) {
-              console.log("response" + i.responseText);
+
+        httpReq.setRequestHeader('Access-Control-Allow-Headers', Shopify.Checkout.apiHost);
+        httpReq.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type ');
+
+        httpReq.open("GET", url, true),
+        httpReq.send(null),
+
+
+        httpReq.onreadystatechange = function() {
+            if (4 === httpReq.readyState) {
+              console.log("response" + httpReq.responseText);
             /*  var e = JSON.parse(i.responseText);
                 if (e.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
                         return r("");
