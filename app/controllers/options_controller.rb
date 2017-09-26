@@ -1,5 +1,5 @@
 class OptionsController < ApplicationController
-  before_action :set_option, only: [:show, :edit, :update, :destroy]
+  before_action :set_option, only: [:edit, :update, :destroy]
 
   # GET /options
   # GET /options.json
@@ -9,11 +9,12 @@ class OptionsController < ApplicationController
 
   # GET /options/1
   # GET /options/1.json
-  def show   
+  def show
     #@shop = ShopifyAPI::Shop.current
     @shop = params[:shop]
-    #@option = Option.find_by domain: @shop.domain
+    #@option = Option.find_by domain: @shop.domain            
     @option = Option.find_by domain: @shop
+    render json: @option
   end
 
   # GET /options/new
