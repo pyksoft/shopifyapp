@@ -10,6 +10,17 @@ class OptionsController < ApplicationController
   # GET /options/1
   # GET /options/1.json
   def show
+=begin    
+    @shop = ShopifyAPI::Shop.current
+    @option = Option.find_by domain: @shop.domain
+    respond_to do |format|
+      if !@option.nil?
+        format.json { render json: @option, status: :ok}
+      else
+        format.json { render json: @option.errors, status: :unprocessable_entity }
+      end
+    end
+=end    
   end
 
   # GET /options/new
