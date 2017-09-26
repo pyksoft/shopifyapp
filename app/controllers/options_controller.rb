@@ -5,16 +5,13 @@ class OptionsController < ApplicationController
   # GET /options.json
   def index
     @options = Option.all
-    @option = Option.find(1)
-    render json: @option
   end
 
   # GET /options/1
   # GET /options/1.json
   def show
-    @shop = params[:shop]
-    @option = Option.find_by domain: @shop
-    render json: @option
+    option = Option.find_by domain: params[:shop]
+    render json: {status: 'SUCCESS', option:option},status: :ok
   end
 
   # GET /options/new
