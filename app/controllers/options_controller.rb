@@ -11,7 +11,7 @@ class OptionsController < ApplicationController
   # GET /options/1.json
   def show   
     @shop = ShopifyAPI::Shop.current
-    @option = Option.find_by domain: @shop.domain    
+    @option = Option.find_by domain: @shop.domain
   end
 
   # GET /options/new
