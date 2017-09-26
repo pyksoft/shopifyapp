@@ -11,6 +11,7 @@ class OptionsController < ApplicationController
   # GET /options/1.json
   def show
     option = Option.find_by domain: params[:shop]
+    add_cors_headers
     render json: {status: 'SUCCESS', option:option},status: :ok
   end
 
@@ -72,5 +73,12 @@ class OptionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_params
       params.require(:option).permit(:auto_complete, :validate_address, :pobox_warning, :streetnum_warning)
+    end
+
+    def add_cors_headers
+      response.headers['Access-Control-Allow-Origin'] = '*'
+      response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      response.headers['Access-Control-Request-Method'] = '*'
+      response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     end
 end
