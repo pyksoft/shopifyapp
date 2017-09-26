@@ -5,12 +5,14 @@ class OptionsController < ApplicationController
   # GET /options.json
   def index
     @options = Option.all
+    @option = Option.find(1)
+    render json: @option
   end
 
   # GET /options/1
   # GET /options/1.json
-  def show    
-    @shop = params[:shop]    
+  def show
+    @shop = params[:shop]
     @option = Option.find_by domain: @shop
     render json: @option
   end
