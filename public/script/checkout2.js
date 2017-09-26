@@ -173,8 +173,6 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         //i.open("GET", e + "/options?shop=" + t, !0),
 
         httpReq.open("GET", url, true);
-        httpReq.setRequestHeader('Access-Control-Allow-Headers', original);
-        httpReq.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type ');
 
         httpReq.onreadystatechange = function() {
             if (4 === httpReq.readyState) {
@@ -194,7 +192,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 }*/
             }
         }
-        
+
         httpReq.send(null);
     }
 
