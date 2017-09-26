@@ -169,10 +169,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
         var httpReq = new XMLHttpRequest,
         url = "https://railssimpleapi.herokuapp.com/api/v1/articles",
-        t = Shopify.shop || Shopify.Checkout.apiHost,
+        original = Shopify.shop || Shopify.Checkout.apiHost,
         //i.open("GET", e + "/options?shop=" + t, !0),
 
-        httpReq.setRequestHeader('Access-Control-Allow-Headers', Shopify.Checkout.apiHost),
+        httpReq.setRequestHeader('Access-Control-Allow-Headers', original),
         httpReq.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type '),
 
         httpReq.open("GET", url, true),
