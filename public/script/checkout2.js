@@ -169,15 +169,11 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
         var httpReq = new XMLHttpRequest,
         url = "https://railssimpleapi.herokuapp.com/api/v1/articles",
-        original = Shopify.shop || Shopify.Checkout.apiHost,
+        original = Shopify.shop || Shopify.Checkout.apiHost;
         //i.open("GET", e + "/options?shop=" + t, !0),
 
-        httpReq.setRequestHeader('Access-Control-Allow-Headers', original),
-        httpReq.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type '),
-
-        httpReq.open("GET", url, true),
-        httpReq.send(null),
-
+        httpReq.setRequestHeader('Access-Control-Allow-Headers', original);
+        httpReq.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type ');
 
         httpReq.onreadystatechange = function() {
             if (4 === httpReq.readyState) {
@@ -197,6 +193,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 }*/
             }
         }
+
+        httpReq.open("GET", url, true);
+        httpReq.send(null);
     }
 
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
