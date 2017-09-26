@@ -168,8 +168,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
 
         var i = new XMLHttpRequest;
-        e = "https://railssimpleapi.herokuapp.com/api/v1/articles",
-        t = Shopify.shop || Shopify.Checkout.apiHost,
+        e = "https://validate-address.herokuapp.com/options/1",
+        //t = Shopify.shop || Shopify.Checkout.apiHost,
         //i.open("GET", e + "/options?shop=" + t, !0),
         i.open("GET", e, !0),
         i.send(null),
