@@ -12,7 +12,7 @@ class OptionsController < ApplicationController
   def show
     option = Option.find_by domain: params[:shop]
     add_cors_headers
-    render json: {status: 'SUCCESS', option:option},status: :ok
+    render json: option.as_json(:except => [:created_at, :updated_at]), status: :ok
   end
 
   # GET /options/new
