@@ -9,10 +9,8 @@ class OptionsController < ApplicationController
 
   # GET /options/1
   # GET /options/1.json
-  def show
-    #@shop = ShopifyAPI::Shop.current
-    @shop = params[:shop]
-    #@option = Option.find_by domain: @shop.domain            
+  def show    
+    @shop = params[:shop]    
     @option = Option.find_by domain: @shop
     render json: @option
   end

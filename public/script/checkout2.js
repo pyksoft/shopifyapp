@@ -147,7 +147,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
 
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
-        var disable_po_boxes = true, address1_num_check = true, autocomplete = true;
+        /*var disable_po_boxes = true, address1_num_check = true, autocomplete = true;
         if (disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
                 return r("");
             }), address1_num_check ? address_1.onkeyup = function() {
@@ -161,18 +161,33 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
         }
 
-
-        /*disable_po_boxes && (address_2 && (address_2.onkeyup = function() {
-            return r("");
-        }), 
-
-        address1_num_check && (address_1.onkeyup = function() {
-            return a("");
-        }));*/
-
         if(autocomplete) {
             var t = document.createElement("script");
             t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
+        }*/
+
+
+        var i = new XMLHttpRequest;        
+        e = "https://validate-address.herokuapp.com",
+        t = Shopify.shop || Shopify.Checkout.apiHost,
+        i.open("GET", e + "/options?shop=" + t, !0), 
+        i.send(null), 
+        i.onreadystatechange = function() {
+            if (4 === i.readyState) {
+                var e = JSON.parse(i.responseText);                
+                if (e.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
+                        return r("");
+                    }), e.streetnum_warning ? address_1.onkeyup = function() {
+                        r(""), a("")
+                    } : address_1.onkeyup = function() {
+                        return r("");
+                    }) : e.streetnum_warning && (address_1.onkeyup = function() {
+                        return a("");                    
+                    }), e.auto_complete) {
+                    var t = document.createElement("script");
+                    t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
+                }
+            }
         }
     }
 
