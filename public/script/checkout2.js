@@ -66,9 +66,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     };
 
     var validateAddress = function() {
-        var geocoder = new google.maps.Geocoder();        
+        var geocoder = new google.maps.Geocoder();
 
-        var shipping_address = document.getElementsByClassName("review-block__content")[0].innerHTML;        
+        var shipping_address = document.getElementsByClassName("review-block__content")[0].innerHTML;
         var geocoder = new google.maps.Geocoder();
 
         var textCorrect = "Thanks for specifying a correct shipping address.";
@@ -82,7 +82,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
           if (status === 'OK') {
             //console.log("valid address");
             s(), document.getElementById("addressValidatorBox").innerHTML = "<h2>" + textCorrect + "</h2>";
-            
+
             var e = "#addressValidatorBox{margin-top: 25px;padding: 8px;background: #ddffdd;text-align: center;border-radius: 5px;}",
             t = document.createElement("style");
             t.styleSheet ? t.styleSheet.cssText = e : t.appendChild(document.createTextNode(e)), document.getElementsByTagName("head")[0].appendChild(t)
@@ -155,7 +155,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             } : address_1.onkeyup = function() {
                 return r("");
             }) : address1_num_check && (address_1.onkeyup = function() {
-                return a("");                    
+                return a("");
             }), autocomplete) {
             var t = document.createElement("script");
             t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
@@ -167,14 +167,15 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         }*/
 
 
-        var i = new XMLHttpRequest;        
-        e = "https://validate-address.herokuapp.com",
+        var i = new XMLHttpRequest;
+        e = "https://custompanel.herokuapp.com/options/1.json",
         t = Shopify.shop || Shopify.Checkout.apiHost,
-        i.open("GET", e + "/options?shop=" + t, !0), 
-        i.send(null), 
+        //i.open("GET", e + "/options?shop=" + t, !0),
+        i.open("GET", e, !0),
+        i.send(null),
         i.onreadystatechange = function() {
             if (4 === i.readyState) {
-                var e = JSON.parse(i.responseText);                
+            /*    var e = JSON.parse(i.responseText);
                 if (e.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
                         return r("");
                     }), e.streetnum_warning ? address_1.onkeyup = function() {
@@ -182,16 +183,16 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     } : address_1.onkeyup = function() {
                         return r("");
                     }) : e.streetnum_warning && (address_1.onkeyup = function() {
-                        return a("");                    
+                        return a("");
                     }), e.auto_complete) {
                     var t = document.createElement("script");
                     t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
-                }
+                }*/
             }
         }
     }
 
-    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {        
+    if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
         var t = document.createElement("script");
         t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
     }
