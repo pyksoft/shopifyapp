@@ -172,6 +172,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         original = Shopify.shop || Shopify.Checkout.apiHost;
         //i.open("GET", e + "/options?shop=" + t, !0),
 
+        httpReq.open("GET", url, true);
         httpReq.setRequestHeader('Access-Control-Allow-Headers', original);
         httpReq.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type ');
 
@@ -193,8 +194,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 }*/
             }
         }
-
-        httpReq.open("GET", url, true);
+        
         httpReq.send(null);
     }
 
