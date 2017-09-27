@@ -25,6 +25,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             })
         };
         e.addListener("place_changed", function() {
+            console.log("address changed");
             var t = e.getPlace();
             if (t.address_components) {
                 var n = t.address_components.find(function(e) {
