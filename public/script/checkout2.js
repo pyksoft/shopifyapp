@@ -24,8 +24,17 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 }
             })
         };
-        e.addListener("place_changed", function() {
-            console.log("address changed");
+        e.addListener("place_changed", function() {            
+            
+            if (o.pobox_warning) {
+                
+                address_1 && r("");
+            }
+
+            if (o.streetnum_warning) {                
+                address_1 && a("");
+            }
+
             var t = e.getPlace();
             if (t.address_components) {
                 var n = t.address_components.find(function(e) {
@@ -195,22 +204,10 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 address_2 && (address_2.onkeyup = function() {
                     return r("");
                 });
-
-                address_1 && (address_1.onchange = function() {
-                    return r("");
-                });
-
-                address_2 && (address_2.onchange = function() {
-                    return r("");
-                });
             }
 
             if (o.streetnum_warning) {                
                 address_1 && (address_1.onkeyup = function() {
-                    return a("");
-                });
-
-                address_1 && (address_1.onchange = function() {
                     return a("");
                 });
             }
