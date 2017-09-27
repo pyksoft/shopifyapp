@@ -170,7 +170,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
 
 ! function() {
     var e = "https://app.roboturk.co/address_validator/api",
-        t = Shopify.shop || Shopify.Checkout.apiHost,        
+        t = Shopify.shop || Shopify.Checkout.apiHost;        
 
     if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {        
         var i = new XMLHttpRequest;
