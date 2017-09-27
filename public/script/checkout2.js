@@ -195,11 +195,11 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     return r("");
                 });
 
-                address_1 && (address_1.onblur = function() {
+                address_1 && (address_1.onchange = function() {
                     return r("");
                 });
 
-                address_2 && (address_2.onblur = function() {
+                address_2 && (address_2.onchange = function() {
                     return r("");
                 });
             }
@@ -209,7 +209,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     return a("");
                 });
 
-                address_1 && (address_1.onblur = function() {
+                address_1 && (address_1.onchange = function() {
                     return a("");
                 });
             }
