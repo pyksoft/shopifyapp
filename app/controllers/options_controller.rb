@@ -12,7 +12,7 @@ class OptionsController < ApplicationController
   def show
     option = Option.find_by domain: params[:shop]
     add_cors_headers
-    render json: option.as_json(:except => [:created_at, :updated_at]), status: :ok
+    render json: {option: option.as_json(:except => [:created_at, :updated_at, :domain])}, status: :ok
   end
 
   # GET /options/new
@@ -72,7 +72,7 @@ class OptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_params
-      params.require(:option).permit(:auto_complete, :validate_address, :pobox_warning, :streetnum_warning)
+      params.require(:option).permit(:auto_complete, :validate_address, :pobox_warning, :streetnum_warning, :domain)
     end
 
     def add_cors_headers
