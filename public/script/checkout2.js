@@ -9,6 +9,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     zip = document.getElementById("checkout_shipping_address_zip") || document.getElementById("checkout_billing_address_zip") || document.getElementById("checkout_shipping_address_attributes_zip"),
     state = document.getElementById("checkout_shipping_address_province") || document.getElementById("checkout_billing_address_province") || document.getElementById("checkout_shipping_address_attributes_province"),
     country = document.getElementById("checkout_shipping_address_country") || document.getElementById("checkout_billing_address_country") || document.getElementById("checkout_shipping_address_attributes_country"),
+    option,
     initializeAutocomplete = function() {
         window.Checkout.$("[data-google-places]").removeAttr("data-google-places");
         var e = new google.maps.places.Autocomplete(address_1, {
@@ -26,12 +27,12 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         };
         e.addListener("place_changed", function() {            
             
-            if (o.pobox_warning) {
+            if (option && option.pobox_warning) {
                 
                 address_1 && r("");
             }
 
-            if (o.streetnum_warning) {                
+            if (option && option.streetnum_warning) {                
                 address_1 && a("");
             }
 
@@ -179,7 +180,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         i.onreadystatechange = function() {
           if (4 === i.readyState) {
             var e = JSON.parse(i.responseText),
-                o = e.option;
+                o = e.option,
+                option = o;
 
             /*
             if (o.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
