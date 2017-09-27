@@ -194,10 +194,22 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 address_2 && (address_2.onkeyup = function() {
                     return r("");
                 });
+
+                address_1 && (address_1.onblur = function() {
+                    return r("");
+                });
+
+                address_2 && (address_2.onblur = function() {
+                    return r("");
+                });
             }
 
             if (o.streetnum_warning) {                
                 address_1 && (address_1.onkeyup = function() {
+                    return a("");
+                });
+
+                address_1 && (address_1.onblur = function() {
                     return a("");
                 });
             }
