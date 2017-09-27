@@ -143,7 +143,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 },
                 r = s(address_1.value) || s(address_2.value) || o(address_1.value) || o(address_2.value),
                 a = d("addressAlertWrapper", "&#9888; We cannot deliver to a P.O. Box. Please provide a valid street address.");
-            r && !n ? address_1.insertBefore(a, address_1.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove()
+            r && !n ? cityParent.insertBefore(a, cityParent.childNodes[0]) : !r && n && document.getElementById("addressAlertWrapper").remove()
         },
         a = function(e) {
             var t = document.getElementById("numAlertWrapper"),
@@ -151,7 +151,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                 s = d("numAlertWrapper", "&#9888; Please specify a street number.");
             
             if(n && !t) {
-                address_1.insertBefore(s, address_1.childNodes[0]);
+                cityParent.insertBefore(s, cityParent.childNodes[0]);
             }
 
             if(!n && t) {
