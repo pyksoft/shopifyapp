@@ -58,7 +58,13 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
                     }),
                     u = t.address_components.find(function(e) {
                         return -1 !== e.types.indexOf("country")
-                    }).long_name; - 1 !== formatUnitStreet.indexOf(u) ? address_1.value = (s ? s.short_name + " " : "") + o.short_name : -1 !== formatStreetUnit.indexOf(u) && (address_1.value = o.short_name + (s ? " " + s.short_name : "")), d ? city.value = d.long_name : a ? city.value = a.long_name : r ? city.value = r.long_name : i && (city.value = i.long_name), state && c && (state.value = c.long_name), zip && l && (zip.value = l.long_name), address_2 && n && (address_2.value = n.long_name)
+                    }).long_name; 
+                    
+                    - 1 !== formatUnitStreet.indexOf(u) ? address_1.value = (s ? s.short_name + " " : "") + o.short_name : -1 !== formatStreetUnit.indexOf(u) && (address_1.value = o.short_name + (s ? " " + s.short_name : "")), 
+                    d ? city.value = d.long_name : a ? city.value = a.long_name : r ? city.value = r.long_name : i && (city.value = i.long_name), 
+                    state && c && (state.value = c.long_name), 
+                    zip && l && (zip.value = l.long_name), 
+                    address_2 && n && (address_2.value = n.long_name)
             }
         }), google.maps.event.addDomListener(address_1, "keydown", function(e) {
             13 === e.keyCode && e.preventDefault()
@@ -146,27 +152,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             n && !t ? cityParent.insertBefore(s, cityParent.childNodes[0]) : !n && t && document.getElementById("numAlertWrapper").remove()
         };
 
-    if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {
-        /*var disable_po_boxes = true, address1_num_check = true, autocomplete = true;
-        if (disable_po_boxes ? (address_2 && (address_2.onkeyup = function() {
-                return r("");
-            }), address1_num_check ? address_1.onkeyup = function() {
-                r(""), a("")
-            } : address_1.onkeyup = function() {
-                return r("");
-            }) : address1_num_check && (address_1.onkeyup = function() {
-                return a("");
-            }), autocomplete) {
-            var t = document.createElement("script");
-            t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
-        }
-
-        if(autocomplete) {
-            var t = document.createElement("script");
-            t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
-        }*/
-
-
+    if (Shopify.Checkout && "contact_information" === Shopify.Checkout.step) {        
         var i = new XMLHttpRequest;
         e = "https://validate-address.herokuapp.com/",
         t = Shopify.shop || Shopify.Checkout.apiHost,
