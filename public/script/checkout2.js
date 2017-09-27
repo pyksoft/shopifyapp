@@ -147,8 +147,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         },
         a = function(e) {
             var t = document.getElementById("numAlertWrapper"),
-                n = !/\d/.test(address_1.value) && address_1.value.length >= 6,
-                s = d("numAlertWrapper", "&#9888; Please specify a street number.");
+                n = !/^\d/.test(address_1.value) && address_1.value.length >= 6,
+                s = d("numAlertWrapper", "&#9888; Please specify a street number.");            
             n && !t ? cityParent.insertBefore(s, cityParent.childNodes[0]) : !n && t && document.getElementById("numAlertWrapper").remove()
         };
 
