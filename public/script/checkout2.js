@@ -164,6 +164,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             var e = JSON.parse(i.responseText),
                 o = e.option;
 
+            /*
             if (o.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
                 return r("");
               }), o.streetnum_warning ? address_1.onkeyup = function() {
@@ -175,6 +176,28 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
               }), o.auto_complete) {
               var t = document.createElement("script");
               t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
+            }*/
+
+            if (o.pobox_warning) {
+                
+                address_1 && (address_1.onkeyup = function() {
+                    return r("");
+                });
+
+                address_2 && (address_2.onkeyup = function() {
+                    return r("");
+                });
+            }
+
+            if (o.streetnum_warning) {                
+                address_1 && (address_1.onkeyup = function() {
+                    return a("");
+                });
+            }
+            
+            if (o.auto_complete) {
+                var t = document.createElement("script");
+                t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
             }
           }
         }
