@@ -153,7 +153,7 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
             if(n && !t) {
                 cityParent.insertBefore(s, cityParent.childNodes[0]);
             }
-            
+
             if(!n && t) {
                 document.getElementById("numAlertWrapper").remove()
             }
@@ -164,27 +164,12 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         var i = new XMLHttpRequest;
         e = "https://validate-address.herokuapp.com/",
         t = Shopify.shop || Shopify.Checkout.apiHost,
-        i.open("GET", e + "/options?shop=" + t, !0),
-        //i.open("GET", e, !0),
+        i.open("GET", e + "/options?shop=" + t, !0),        
         i.send(null),
         i.onreadystatechange = function() {
           if (4 === i.readyState) {
             var e = JSON.parse(i.responseText),
                 o = e.option;
-
-            /*
-            if (o.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
-                return r("");
-              }), o.streetnum_warning ? address_1.onkeyup = function() {
-                r(""), a("")
-              } : address_1.onkeyup = function() {
-                return r("");
-              }) : o.streetnum_warning && (address_1.onkeyup = function() {
-                return a("");
-              }), o.auto_complete) {
-              var t = document.createElement("script");
-              t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyABMvMXqWmgepYbmi8fnm2zm9pW2ECgPq0&libraries=places&callback=initializeAutocomplete", t.type = "text/javascript", head.appendChild(t)
-            }*/
 
             if (o.pobox_warning) {
                 
@@ -212,7 +197,19 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
     }
 
     if (Shopify.Checkout && "shipping_method" === Shopify.Checkout.step) {
-        var t = document.createElement("script");
-        t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
+        
+        var i = new XMLHttpRequest;
+        e = "https://validate-address.herokuapp.com/",
+        t = Shopify.shop || Shopify.Checkout.apiHost,
+        i.open("GET", e + "/options?shop=" + t, !0),        
+        i.send(null),
+        i.onreadystatechange = function() {
+          if (4 === i.readyState) {
+            if (o.validate_address) {
+                var t = document.createElement("script");
+                t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
+            }
+          }
+        }       
     }
 }();
