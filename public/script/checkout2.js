@@ -180,8 +180,9 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         i.onreadystatechange = function() {
           if (4 === i.readyState) {
             var e = JSON.parse(i.responseText),
-                o = e.option,
-                option = o;
+                o = e.option;
+                            
+            option = o;
 
             /*
             if (o.pobox_warning ? (address_2 && (address_2.onkeyup = function() {
