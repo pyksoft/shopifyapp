@@ -205,6 +205,8 @@ var formatUnitStreet = ["Australia", "Canada", "France", "Hong Kong", "Malaysia"
         i.send(null),
         i.onreadystatechange = function() {
           if (4 === i.readyState) {
+            var e = JSON.parse(i.responseText),
+            o = e.option;
             if (o.validate_address) {
                 var t = document.createElement("script");
                 t.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHjLA15WQ7HZ16oYq031AO7Nhy2gXLDg&callback=validateAddress", t.type = "text/javascript", head.appendChild(t);
