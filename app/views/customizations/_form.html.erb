@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <script>
-    function update(jscolor, id) {
-        // 'jscolor' instance can be used as a string
-        document.getElementById('rect' + id).style.backgroundColor = '#' + jscolor
-    }
-  </script>
-
   <div class="field">
     <%= form.label :color_background %>
     <%= form.text_field :color_background, id: :customization_color_background, class: "jscolor {onFineChange:'update(this, 1)'}", value: "cc66ff" %>
   </div>
   <p id="rect1" style="border:1px solid gray; width:161px; height:100px;">
 
+  <script>
+    function update(jscolor, id) {
+        // 'jscolor' instance can be used as a string
+        document.getElementById('rect' + id).style.backgroundColor = '#' + jscolor
+    }
+  </script>
+  
   <div class="field">
     <%= form.label :color_border %>
     <%= form.text_field :color_border, id: :customization_color_border %>
