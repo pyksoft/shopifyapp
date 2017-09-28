@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926095906) do
+ActiveRecord::Schema.define(version: 20170928194957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customizations", force: :cascade do |t|
+    t.string "color_background"
+    t.string "color_border"
+    t.string "color_text"
+    t.string "color_highlight"
+    t.string "color_hover"
+    t.string "text_apt_suite"
+    t.string "text_inaccurate"
+    t.string "text_select_confirm"
+    t.string "text_select_suggestion"
+    t.string "text_suggest1"
+    t.text "text_suggest2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "text_correct"
+    t.integer "option_id"
+  end
 
   create_table "options", force: :cascade do |t|
     t.boolean "auto_complete"

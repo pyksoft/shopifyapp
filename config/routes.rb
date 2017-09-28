@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customizations
   root :to => 'home#index'
   mount ShopifyApp::Engine, at: '/'
   resources :options, only: [:update, :edit]

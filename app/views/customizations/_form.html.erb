@@ -1,0 +1,80 @@
+<%= form_with(model: customization, local: true) do |form| %>
+  <% if customization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customization.errors.count, "error") %> prohibited this customization from being saved:</h2>
+
+      <ul>
+      <% customization.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <script>
+    function update(jscolor, id) {
+        // 'jscolor' instance can be used as a string
+        document.getElementById('rect' + id).style.backgroundColor = '#' + jscolor
+    }
+  </script>
+
+  <div class="field">
+    <%= form.label :color_background %>
+    <%= form.text_field :color_background, id: :customization_color_background, class: "jscolor {onFineChange:'update(this, 1)'}", value: "cc66ff" %>
+  </div>
+  <p id="rect1" style="border:1px solid gray; width:161px; height:100px;">
+
+  <div class="field">
+    <%= form.label :color_border %>
+    <%= form.text_field :color_border, id: :customization_color_border %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_text %>
+    <%= form.text_field :color_text, id: :customization_color_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_highlight %>
+    <%= form.text_field :color_highlight, id: :customization_color_highlight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_hover %>
+    <%= form.text_field :color_hover, id: :customization_color_hover %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_apt_suite %>
+    <%= form.text_field :text_apt_suite, id: :customization_text_apt_suite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_inaccurate %>
+    <%= form.text_field :text_inaccurate, id: :customization_text_inaccurate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_select_confirm %>
+    <%= form.text_field :text_select_confirm, id: :customization_text_select_confirm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_select_suggestion %>
+    <%= form.text_field :text_select_suggestion, id: :customization_text_select_suggestion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_suggest1 %>
+    <%= form.text_field :text_suggest1, id: :customization_text_suggest1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text_suggest2 %>
+    <%= form.text_area :text_suggest2, id: :customization_text_suggest2 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
