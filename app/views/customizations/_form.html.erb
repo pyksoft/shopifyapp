@@ -15,6 +15,27 @@
     <%= form.label :color_background %>
     <%= form.text_field :color_background, id: :customization_color_background, class: "jscolor {onFineChange:'update(this, 1)'}", value: "cc66ff" %>
   </div>
+  
+  <div class="field">
+    <%= form.label :color_border %>
+    <%= form.text_field :color_border, id: :customization_color_border, class: "jscolor {onFineChange:'update(this, 1)'}", value: "cc66ff"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_text %>
+    <%= form.text_field :color_text, id: :customization_color_text, class: "jscolor {onFineChange:'update(this, 1)'}", value: "cc66ff"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_highlight %>
+    <%= form.text_field :color_highlight, id: :customization_color_highlight, class: "jscolor {onFineChange:'update(this, 1)'}", value: "cc66ff"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color_hover %>
+    <%= form.text_field :color_hover, id: :customization_color_hover, class: "jscolor {onFineChange:'update(this, 1)'}", value: "cc66ff"  %>
+  </div>
+  
   <p id="rect1" style="border:1px solid gray; width:161px; height:100px;">
 
   <script>
@@ -24,25 +45,6 @@
     }
   </script>
   
-  <div class="field">
-    <%= form.label :color_border %>
-    <%= form.text_field :color_border, id: :customization_color_border %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color_text %>
-    <%= form.text_field :color_text, id: :customization_color_text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color_highlight %>
-    <%= form.text_field :color_highlight, id: :customization_color_highlight %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color_hover %>
-    <%= form.text_field :color_hover, id: :customization_color_hover %>
-  </div>
 
   <div class="field">
     <%= form.label :text_apt_suite %>
