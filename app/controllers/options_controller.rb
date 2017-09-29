@@ -46,11 +46,11 @@ class OptionsController < ApplicationController
     respond_to do |format|
       if @option.update(option_params)
         #format.html { redirect_to edit_option_path(@option), notice: 'Options are successfully updated.' }
-        render :edit, notice: 'Options are successfully updated.'
-        #format.json { render :show, status: :ok, location: @option }
+        flash[:notice] = 'Options are successfully updated.'
+        format.html {render :edit }        
       else
+        flash[:alert] = 'Errors while updating'
         format.html { render :edit }
-        format.json { render json: @option.errors, status: :unprocessable_entity }
       end
     end
   end
