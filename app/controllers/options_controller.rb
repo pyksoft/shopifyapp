@@ -43,6 +43,7 @@ class OptionsController < ApplicationController
   # PATCH/PUT /options/1
   # PATCH/PUT /options/1.json
   def update
+=begin    
     respond_to do |format|
       if @option.update(option_params)
         #format.html { redirect_to edit_option_path(@option), notice: 'Options are successfully updated.' }
@@ -52,6 +53,13 @@ class OptionsController < ApplicationController
         flash[:alert] = 'Errors while updating'
         format.html { render :edit }
       end
+    end
+=end
+    if @option.update(option_params)      
+      flash[:notice] = 'Options are successfully updated.'      
+      redirect_to root_path
+    else
+      flash[:alert] = 'Errors while updating'      
     end
   end
 
