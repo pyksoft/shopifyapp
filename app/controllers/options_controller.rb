@@ -22,6 +22,7 @@ class OptionsController < ApplicationController
 
   # GET /options/1/edit
   def edit
+=begin    
     @shop = ShopifyAPI::Shop.current
     @option = Option.find_by domain: @shop.domain
     if @option.nil?
@@ -29,6 +30,7 @@ class OptionsController < ApplicationController
       @option.domain = @shop.domain
       @option.save
     end
+=end    
   end
 
   # POST /options

@@ -1,7 +1,6 @@
 class HomeController < ShopifyApp::AuthenticatedController
   def index
-    redirect_to options_edit_path
-=begin    
+    
     @shop = ShopifyAPI::Shop.current
     @option = Option.find_by domain: @shop.domain
     if @option.nil?
@@ -9,7 +8,9 @@ class HomeController < ShopifyApp::AuthenticatedController
       @option.domain = @shop.domain
       @option.save
     end
-    
+
+    render 'options/edit'
+=begin    
     @customization = @option.customization
     if @customization.nil?
       @customization = Customization.new
