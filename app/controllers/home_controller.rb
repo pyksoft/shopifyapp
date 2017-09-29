@@ -5,7 +5,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   def customize
-    
+    render 'customizations/edit'
   end
 
   private    
