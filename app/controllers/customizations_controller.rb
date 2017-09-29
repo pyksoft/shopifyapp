@@ -22,6 +22,14 @@ class CustomizationsController < ApplicationController
   end
 
   def edit_alter 
+    @shop = ShopifyAPI::Shop.current
+    @option = Option.find_by domain: @shop.domain
+    if @option.nil?
+      @option = Option.new
+      @option.domain = @shop.domain
+      @option.save
+    end
+    
     @customization = @option.customization
     if @customization.nil?
       @customization = Customization.new
