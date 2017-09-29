@@ -1,10 +1,10 @@
 class HomeController < ShopifyApp::AuthenticatedController
-  before_action :check_domain, only: [:index, :custom]
+  before_action :check_domain, only: [:index, :customize]
   def index
     
   end
 
-  def custom
+  def customize
     
   end
 

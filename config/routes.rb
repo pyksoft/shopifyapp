@@ -1,6 +1,6 @@
 Rails.application.routes.draw do  
   root :to => 'home#index'
-  get '/custom', :to => 'home#custom'
+  get '/customize', :to => 'home#customize'
   mount ShopifyApp::Engine, at: '/'
   resources :options, only: [:update, :edit]
   #resources :customizations, only: [:update, :edit]
