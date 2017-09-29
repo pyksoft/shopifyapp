@@ -5,7 +5,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   def customize
-    
+    redirect_to edit_customization_path(@customization)
   end
 
   private    
