@@ -40,6 +40,7 @@ class CustomizationsController < ApplicationController
   # PATCH/PUT /customizations/1
   # PATCH/PUT /customizations/1.json
   def update
+=begin    
     respond_to do |format|
       if @customization.update(customization_params)
         format.html { redirect_to edit_customization_path(@customization), notice: 'Customization was successfully updated.' }        
@@ -49,6 +50,13 @@ class CustomizationsController < ApplicationController
         #format.json { render json: @customization.errors, status: :unprocessable_entity }
       end
     end
+=end
+    if @customization.update(customization_params)      
+      flash[:notice] = 'Customization was successfully updated.'      
+      redirect_to root_path
+    else
+      flash[:alert] = 'Errors while updating'      
+    end    
   end
 
   # DELETE /customizations/1
