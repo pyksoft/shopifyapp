@@ -1,25 +1,5 @@
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'options')">Features</button>
-  <button class="tablinks active" onclick="openCity(event, 'custom_color_text')">Customize</button>
-  <button class="tablinks" onclick="openCity(event, 'help')">Help</button>
-</div>
+<%= render 'layouts/nav'%>
 
-<div id="custom_color_text" class="tabcontent" style="display:block">
-  <%= render 'customizations/form', customization: @customization %>
-</div>
+<p id="notice"><%= notice %></p>
 
-<script>
-  function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-</script>
+<%= render 'customizations/form', customization: @customization %>
