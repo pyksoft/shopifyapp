@@ -47,7 +47,7 @@ class OptionsController < ApplicationController
       if @option.update(option_params)
         #format.html { redirect_to edit_option_path(@option), notice: 'Options are successfully updated.' }
         flash[:notice] = 'Options are successfully updated.'
-        format.html {render :edit }        
+        format.html {render 'home#index' }        
       else
         flash[:alert] = 'Errors while updating'
         format.html { render :edit }
