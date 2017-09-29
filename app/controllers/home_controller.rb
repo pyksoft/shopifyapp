@@ -8,8 +8,6 @@ class HomeController < ShopifyApp::AuthenticatedController
       @option.domain = @shop.domain
       @option.save
     end
-
-    render 'options/edit'
 =begin    
     @customization = @option.customization
     if @customization.nil?
