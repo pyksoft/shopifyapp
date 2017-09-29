@@ -21,6 +21,16 @@ class CustomizationsController < ApplicationController
   def edit        
   end
 
+  def edit_alter 
+    @customization = @option.customization
+    if @customization.nil?
+      @customization = Customization.new
+      @customization.option = @option
+      @customization.save
+    end
+    render :edit
+  end 
+
   # POST /customizations
   # POST /customizations.json
   def create
