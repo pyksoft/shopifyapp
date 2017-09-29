@@ -9,13 +9,6 @@ class HomeController < ShopifyApp::AuthenticatedController
       @option.save
     end
 
-    @customization = @option.customization
-    if @customization.nil?
-      @customization = Customization.new
-      @customization.option = @option
-      @customization.save
-    end 
-
   end
 
   private

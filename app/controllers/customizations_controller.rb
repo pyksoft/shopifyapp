@@ -19,6 +19,12 @@ class CustomizationsController < ApplicationController
 
   # GET /customizations/1/edit
   def edit
+    @customization = @option.customization
+    if @customization.nil?
+      @customization = Customization.new
+      @customization.option = @option
+      @customization.save
+    end 
   end
 
   # POST /customizations
