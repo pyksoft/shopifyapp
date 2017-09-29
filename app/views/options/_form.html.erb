@@ -1,4 +1,7 @@
 <%= render 'layouts/nav' %>
+
+<p id="notice"><%= notice %></p>
+
 <%= form_with(model: option, local: true) do |form| %>
   <% if option.errors.any? %>
     <div id="error_explanation">
